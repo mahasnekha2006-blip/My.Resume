@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Timetable & Media Examples</title>
+  <style>
+    :root{
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --accent:#2563eb;
+      --muted:#666;
+    }
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      margin:0;
+      padding:24px;
+      color:#111;
+    }
+    .container{
+      max-width:980px;
+      margin:0 auto;
+    }
+    h1{margin:0 0 16px}
+    /* Card */
+    .card{
+      background:var(--card);
+      border-radius:10px;
+      box-shadow:0 6px 18px rgba(20,20,40,0.06);
+      padding:18px;
+      margin-bottom:20px;
+    }
+
+    /* Timetable table */
+    .timetable{
+      width:100%;
+      border-collapse:collapse;
+      table-layout:fixed;
+    }
+    .timetable th, .timetable td{
+      border:1px solid #e6e9ef;
+      padding:10px;
+      text-align:center;
+      font-size:14px;
+      word-wrap:break-word;
+    }
+    .timetable th{
+      background:linear-gradient(90deg, rgba(37,99,235,0.08), rgba(37,99,235,0.03));
+      color:var(--accent);
+      font-weight:600;
+    }
+    .period{
+      font-weight:700;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Mobile: make table horizontally scrollable */
+    .table-wrap{
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+    }
+
+    /* Simple responsive tweaks */
+    @media (max-width:520px){
+      .timetable th, .timetable td{
+        padding:8px;
+        font-size:13px;
+      }
+    }
+
+    /* Media section styles */
+    .media-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px;
+      align-items:start;
+    }
+    .note{color:var(--muted); font-size:13px; margin-top:8px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>College Timetable & Media Demo</h1>
+
+    <!-- Timetable card -->
+    <div class="card">
+      <h2 style="margin-top:0">Weekly Timetable (Sample)</h2>
+      <div class="table-wrap">
+        <table class="timetable" aria-label="Weekly timetable">
+          <thead>
+            <tr>
+              <th>Period / Day</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="period">09:00 - 09:45<br>Period 1</td>
+              <td>Maths</td>
+              <td>English</td>
+              <td>Physics</td>
+              <td>Biology</td>
+              <td>History</td>
+            </tr>
+            <tr>
+              <td class="period">09:50 - 10:35<br>Period 2</td>
+              <td>Chemistry</td>
+              <td>Computer Sci</td>
+              <td>Maths</td>
+              <td>English</td>
+              <td>Physical Ed.</td>
+            </tr>
+            <tr>
+              <td class="period">10:45 - 11:30<br>Period 3</td>
+              <td>English</td>
+              <td>Maths</td>
+              <td>Computer Sci</td>
+              <td>History</td>
+              <td>Geography</td>
+            </tr>
+            <tr>
+              <td class="period">11:40 - 12:25<br>Period 4</td>
+              <td>Biology</td>
+              <td>Chemistry</td>
+              <td>Art</td>
+              <td>Maths</td>
+              <td>Physics</td>
+            </tr>
+            <tr>
+              <td class="period">13:15 - 14:00<br>Period 5</td>
+              <td>Lab / Practical</td>
+              <td>Computer Lab</td>
+              <td>Library</td>
+              <td>Project Work</td>
+              <td>Club Activity</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Tip: change subjects, times or days as needed. For a half-day timetable remove later rows.</p>
+    </div>
+
+    <!-- Media card -->
+    <div class="card">
+      <h2 style="margin-top:0">Media Examples</h2>
+      <div class="media-grid">
+        <!-- Video -->
+        <div>
+          <h3 style="margin:0 0 8px">Video (MP4)</h3>
+          <!-- Replace src with your .mp4 file path -->
+          <video controls width="100%" preload="metadata" poster="" style="border-radius:8px;">
+            <source src="sample-video.mp4" type="video/mp4">
+            Your browser does not support HTML5 video. <a href="sample-video.mp4">Download the video</a>.
+          </video>
+          <p class="note">Use MP4 (H.264) for widest compatibility.</p>
+        </div>
+
+        <!-- Audio -->
+        <div>
+          <h3 style="margin:0 0 8px">Audio (MP3)</h3>
+          <!-- Replace src with your .mp3 file path -->
+          <audio controls style="width:100%;">
+            <source src="sample-audio.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <p class="note">Good for lectures, podcasts or background music.</p>
+        </div>
+
+        <!-- YouTube embed -->
+        <div>
+          <h3 style="margin:0 0 8px">YouTube Embed</h3>
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
+            <!-- Replace the video id with the one you want -->
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="YouTube video"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <p class="note">Change the YouTube ID in the iframe `src` to embed another video.</p>
+        </div>
+
+        <!-- Fallback / downloadable -->
+        <div>
+          <h3 style="margin:0 0 8px">Downloadable Files</h3>
+          <p style="margin:0 0 8px">Provide direct download links for resources:</p>
+          <ul style="margin:0 0 8px 18px;">
+            <li><a href="notes-week1.pdf" download>Download Week 1 Notes (PDF)</a></li>
+            <li><a href="syllabus.docx" download>Download Syllabus (DOCX)</a></li>
+          </ul>
+          <p class="note">Put real file URLs or file paths in `href`.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
